@@ -1,16 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+// Routes
+import { APP_ROUTING } from './app.routes';
+
+// Services
+import { GmailService } from './services/gmail.service';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    MessagesComponent
   ],
   imports: [
-    BrowserModule
+    HttpModule,
+    BrowserModule,
+    APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    GmailService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
