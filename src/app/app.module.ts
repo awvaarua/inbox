@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
 
 // Routes
 import { APP_ROUTING } from './app.routes';
@@ -11,14 +13,18 @@ import { GmailService } from './services/gmail.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MessagesComponent
+    MessagesComponent,
+    MessageComponent
   ],
   imports: [
+    MatCardModule,
+    BrowserAnimationsModule,
     HttpModule,
     BrowserModule,
     APP_ROUTING
@@ -28,4 +34,5 @@ import { MessagesComponent } from './components/messages/messages.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

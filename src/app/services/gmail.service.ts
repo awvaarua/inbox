@@ -14,9 +14,18 @@ export class GmailService {
 
   getMessages() {
     let headers = new Headers();
-    headers.append('authorization', 'Bearer ya29.GmPnBB028_D7oKGLStc8trorUdgjDzofrD6xQOkIy0BjMV0MyY6-dLKSKPmV7rd1S7XGwR728nayb4nc2F6Y52PEekM8ZtffOy4RgY-UX7qPZZ6c4w-olk3zeSet6QL5YAmEyR0');
+    headers.append('authorization', 'Bearer ya29.GmPpBIXXuNHgl03s6G6G364fSuKmGK7eg6VySRk5RTkuq00uuKTVGa-tLjWYRKK5vaHFyBegqyYWHE7AphtxSZx_bDX3EkqKc5TFPWylbRBf4qw60Yz04upJZNrjb7t9App555g');
 
-    let url = this.BASE_URL + '/messages';
+    let url = this.BASE_URL + '/messages?labelIds=UNREAD&maxResults=10';
+    return this.http.get( url, { headers } )
+              .map(res => res.json());
+  }
+
+  getMessage(id:string) {
+    let headers = new Headers();
+    headers.append('authorization', 'Bearer ya29.GmPpBIXXuNHgl03s6G6G364fSuKmGK7eg6VySRk5RTkuq00uuKTVGa-tLjWYRKK5vaHFyBegqyYWHE7AphtxSZx_bDX3EkqKc5TFPWylbRBf4qw60Yz04upJZNrjb7t9App555g');
+
+    let url = this.BASE_URL + '/messages/' + id;
     return this.http.get( url, { headers } )
               .map(res => res.json());
   }
